@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Room - Video Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="room-container">
+        <!-- Header -->
+        <div class="room-header">
+            <div class="room-info">
+                <h2>Room: <span id="roomIdDisplay"></span></h2>
+                <button class="btn btn-small" onclick="copyRoomId()">Copy Room ID</button>
+            </div>
+            <div class="room-controls">
+                <button id="toggleVideo" class="control-btn" onclick="toggleVideo()">
+                    <span id="videoIcon">📹</span> Video
+                </button>
+                <button id="toggleAudio" class="control-btn" onclick="toggleAudio()">
+                    <span id="audioIcon">🎤</span> Audio
+                </button>
+                <button class="control-btn" onclick="toggleScreenShare()">
+                    <span>🖥️</span> Screen
+                </button>
+                <button class="control-btn btn-danger" onclick="leaveRoom()">
+                    <span>📞</span> Leave
+                </button>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="room-main">
+            <!-- Video Grid -->
+            <div class="video-section">
+                <div class="video-grid" id="videoGrid">
+                    <div class="video-container">
+                        <video id="localVideo" autoplay muted playsinline></video>
+                        <div class="video-label">You</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <!-- Tabs -->
+                <div class="sidebar-tabs">
+                    <button class="tab-btn active" onclick="switchTab('chat')">💬 Chat</button>
+                    <button class="tab-btn" onclick="switchTab('users')">👥 Users</button>
+                    <button class="tab-btn" onclick="switchTab('whiteboard')">🎨 Whiteboard</button>
+                    <button class="tab-btn" onclick="switchTab('files')">📁 Files</button>
+                </div>
+                <!-- Chat Tab -->
+                <div id="chatTab" class="tab-content active">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
+                        <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+                <!-- Users Tab -->
+                <div id="usersTab" class="tab-content">
+                    <div class="users-list" id="usersList">
+                        <div class="user-item">👤 You</div>
+                    </div>
+                </div>
+                <!-- Whiteboard Tab -->
+                <div id="whiteboardTab" class="tab-content">
+                    <div class="whiteboard-controls">
+                        <input type="color" id="colorPicker" value="#000000">
+                        <input type="range" id="brushSize" min="1" max="20" value="3">
+                        <button class="btn btn-small" onclick="clearWhiteboard()">Clear</button>
+                    </div>
+                    <canvas id="whiteboard" width="300" height="400"></canvas>
+                </div>
+                <!-- Files Tab -->
+                <div id="filesTab" class="tab-content">
+                    <div class="file-upload">
+                        <input type="file" id="fileInput" style="display: none;" onchange="uploadFile()">
+                        <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">Upload File</button>
+                    </div>
+                    <div class="files-list" id="filesList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Room JavaScript -->
+    <script src="room.js"></script>
+</body>
+</html>

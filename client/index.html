@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat App - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎥 Video Chat Application</h1>
+            <p>Connect with your team anywhere, anytime</p>
+        </header>
+        <div class="main-content">
+            <div class="auth-section" id="authSection">
+                <h2>Welcome!</h2>
+                <p>Please login or register to continue</p>
+                <div class="button-group">
+                    <a href="/login" class="btn btn-primary">Login</a>
+                    <a href="/register" class="btn btn-secondary">Register</a>
+                </div>
+            </div>
+            <div class="dashboard-section" id="dashboardSection" style="display: none;">
+                <h2>Welcome, <span id="userName"></span>!</h2>
+                <div class="room-actions">
+                    <div class="action-card">
+                        <h3>📹 Create New Meeting</h3>
+                        <p>Start an instant meeting</p>
+                        <button class="btn btn-primary" onclick="createRoom()">Create Room</button>
+                    </div>
+                    <div class="action-card">
+                        <h3>🔗 Join Meeting</h3>
+                        <p>Join with a room ID</p>
+                        <input type="text" id="roomIdInput" placeholder="Enter Room ID">
+                        <button class="btn btn-secondary" onclick="joinRoom()">Join Room</button>
+                    </div>
+                </div>
+                <button class="btn btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

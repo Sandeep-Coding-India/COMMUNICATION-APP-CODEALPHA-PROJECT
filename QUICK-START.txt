@@ -1,0 +1,64 @@
+================================================ 
+VIDEO CHAT APPLICATION - QUICK START GUIDE 
+================================================ 
+ 
+PROJECT LOCATION: E:\CODE\COMMU\video-chat-app 
+ 
+FILES CREATED: 
+  - Server files: server.js, config, models, routes, controllers 
+  - Client files: HTML pages, CSS, JavaScript 
+  - Dependencies: Installed successfully (176 packages) 
+ 
+================================================ 
+HOW TO RUN THE APPLICATION: 
+================================================ 
+ 
+STEP 1: START MONGODB 
+  Make sure MongoDB is running on your system. 
+  If not installed, download from: https://www.mongodb.com/try/download/community 
+ 
+  To start MongoDB: 
+  - Windows Service: net start MongoDB 
+  - OR run manually: mongod 
+ 
+STEP 2: START THE SERVER 
+  Open terminal in: E:\CODE\COMMU\video-chat-app 
+  Run: npm start 
+  OR: node server/server.js 
+ 
+STEP 3: OPEN IN BROWSER 
+  Go to: http://localhost:3000 
+ 
+================================================ 
+FIRST TIME USAGE: 
+================================================ 
+ 
+1. Click "Register" 
+2. Fill in Name, Email, Password 
+3. After registration, you'll be logged in automatically 
+4. Click "Create Room" to start a video call 
+5. Share the Room ID with others to invite them 
+ 
+================================================ 
+TESTING WITH MULTIPLE USERS: 
+================================================ 
+ 
+- Open multiple browser tabs/windows 
+- Register different users in each 
+- Create room in one, join from others 
+ 
+================================================ 
+TROUBLESHOOTING: 
+================================================ 
+ 
+Q: MongoDB connection error? 
+A: Make sure MongoDB is running on port 27017 
+ 
+Q: Camera/mic not working? 
+A: Allow browser permissions for camera and microphone 
+ 
+Q: Port 3000 in use? 
+A: Change PORT in .env file 
+ 
+================================================ 
+ECHO is on.
